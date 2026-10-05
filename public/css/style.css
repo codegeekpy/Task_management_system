@@ -774,6 +774,33 @@ button, input, select, textarea {
   min-width: 200px;
 }
 
+/* Auth Modal Tabs */
+.auth-tabs-minimal {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-body);
+  padding: 2px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.auth-tab-minimal {
+  padding: 4px 10px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.auth-tab-minimal:hover { color: var(--text-main); }
+.auth-tab-minimal.active {
+  background: var(--bg-card);
+  color: var(--text-main);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 /* Responsive */
 @media (max-width: 800px) {
   .kanban-grid {

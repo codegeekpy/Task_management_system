@@ -20,6 +20,33 @@ async function testFullSuite() {
   console.log('2. Demo Login Successful:', loginData.user.name);
   const token = loginData.token;
 
+  // 2b. Test Creating New User (Registration)
+  const testUserEmail = `user_${Date.now()}@taskflow.dev`;
+  const regRes = await fetch(`${BASE_URL}/auth/register`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: 'Jordan Lee',
+      email: testUserEmail,
+      password: 'password123',
+      role: 'QA Engineer'
+    })
+  });
+  const regData = await regRes.json();
+  console.log('2b. New User Created:', regData.user.name, `(${regData.user.email})`);
+
+  // 2c. Test Signing in as the Newly Created User
+  const newLoginRes = await fetch(`${BASE_URL}/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: testUserEmail,
+      password: 'password123'
+    })
+  });
+  const newLoginData = await newLoginRes.json();
+  console.log('2c. Sign In as New User Successful:', newLoginData.user.name);
+
   // 3. Connect WebSocket client
   console.log('3. Connecting WebSocket client...');
   const ws = new WebSocket('ws://localhost:3000');

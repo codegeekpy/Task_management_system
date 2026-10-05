@@ -4,19 +4,28 @@
       "id": "usr_alex",
       "name": "Alex Morgan",
       "email": "alex@taskflow.dev",
-      "password": "$2b$10$Wzt.35cCxv4TBBuXRrfNu.GE3VEnJDvBVrvhCoMLnnbIYE8kUrplS",
+      "password": "$2b$10$uZJ.S0R2q8lF4E3j9OXnyeGcScYQj8zusysb7owEtZKknGvXepcd6",
       "role": "Product Lead",
       "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
-      "createdAt": "2026-10-05T10:08:03.931Z"
+      "createdAt": "2026-10-05T10:09:20.810Z"
     },
     {
       "id": "usr_sarah",
       "name": "Sarah Chen",
       "email": "sarah@taskflow.dev",
-      "password": "$2b$10$3qt3K99kwHR8HXkV8nZWJeikBv57pOiP1IVsuBcieGs0Sr0l6Rfa2",
+      "password": "$2b$10$cDzzE2Qne75krRXTgr1om.AEFsIo1AUjibUPUQIDIhA5X1D9OIThq",
       "role": "Developer",
       "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80",
-      "createdAt": "2026-10-05T10:08:03.931Z"
+      "createdAt": "2026-10-05T10:09:20.810Z"
+    },
+    {
+      "id": "usr_afd98ec1",
+      "name": "Jordan Lee",
+      "email": "user_1791195099229@taskflow.dev",
+      "password": "$2b$10$uQTr7/X9O.CVEAfbJL0vEuDo68vBCE/O.ogPGF6PNdhceJqJOhjXi",
+      "role": "QA Engineer",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Jordan%20Lee",
+      "createdAt": "2026-10-05T10:11:39.351Z"
     }
   ],
   "tasks": [
@@ -34,8 +43,8 @@
       ],
       "subtasks": [],
       "comments": [],
-      "createdAt": "2026-10-05T10:08:03.931Z",
-      "updatedAt": "2026-10-05T10:08:03.931Z"
+      "createdAt": "2026-10-05T10:09:20.810Z",
+      "updatedAt": "2026-10-05T10:09:20.810Z"
     },
     {
       "id": "tsk_2",
@@ -51,8 +60,8 @@
       ],
       "subtasks": [],
       "comments": [],
-      "createdAt": "2026-10-05T10:08:03.931Z",
-      "updatedAt": "2026-10-05T10:08:03.931Z"
+      "createdAt": "2026-10-05T10:09:20.810Z",
+      "updatedAt": "2026-10-05T10:09:20.810Z"
     },
     {
       "id": "tsk_3",
@@ -68,11 +77,29 @@
       ],
       "subtasks": [],
       "comments": [],
-      "createdAt": "2026-10-05T10:08:03.931Z",
-      "updatedAt": "2026-10-05T10:08:03.931Z"
+      "createdAt": "2026-10-05T10:09:20.810Z",
+      "updatedAt": "2026-10-05T10:09:20.810Z"
     }
   ],
   "activities": [
+    {
+      "id": "act_330e0607",
+      "userId": "usr_alex",
+      "action": "moved_task",
+      "taskTitle": "Review production logs",
+      "taskId": "tsk_c2016607",
+      "details": "Moved to in progress",
+      "timestamp": "2026-10-05T10:11:39.555Z"
+    },
+    {
+      "id": "act_66fa2a38",
+      "userId": "usr_alex",
+      "action": "created_task",
+      "taskTitle": "Review production logs",
+      "taskId": "tsk_c2016607",
+      "details": "Created task",
+      "timestamp": "2026-10-05T10:11:39.521Z"
+    },
     {
       "id": "act_1",
       "userId": "usr_alex",
@@ -80,7 +107,7 @@
       "taskTitle": "Design clean mobile interface",
       "taskId": "tsk_1",
       "details": "Started working on mobile interface",
-      "timestamp": "2026-10-05T10:08:03.931Z"
+      "timestamp": "2026-10-05T10:09:20.810Z"
     }
   ]
 }

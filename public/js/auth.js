@@ -1,14 +1,26 @@
 /**
- * Minimal Authentication Controller
+ * Minimal Authentication & User Management Controller
  */
 const auth = (() => {
   let currentUser = null;
   let allUsers = [];
 
   const modal = document.getElementById('authModalOverlay');
+  const btnCloseModal = document.getElementById('btnAuthModalClose');
+  const tabSignIn = document.getElementById('tabAuthSignIn');
+  const tabCreateUser = document.getElementById('tabAuthCreateUser');
+  const sectionSignIn = document.getElementById('authSectionSignIn');
+  const sectionCreateUser = document.getElementById('authSectionCreateUser');
+
   const loginForm = document.getElementById('loginForm');
   const loginEmail = document.getElementById('loginEmail');
   const loginPassword = document.getElementById('loginPassword');
+
+  const registerForm = document.getElementById('registerForm');
+  const regName = document.getElementById('regName');
+  const regEmail = document.getElementById('regEmail');
+  const regPassword = document.getElementById('regPassword');
+  const regRole = document.getElementById('regRole');
 
   const navAvatar = document.getElementById('navUserAvatar');
   const navName = document.getElementById('navUserName');
@@ -17,6 +29,8 @@ const auth = (() => {
   const dropdownName = document.getElementById('dropdownUserName');
   const dropdownEmail = document.getElementById('dropdownUserEmail');
   const demoList = document.getElementById('demoSwitchList');
+  const btnOpenCreateUser = document.getElementById('btnOpenCreateUser');
+  const btnOpenSignIn = document.getElementById('btnOpenSignIn');
   const btnReset = document.getElementById('btnResetData');
   const btnLogout = document.getElementById('btnLogout');
 
@@ -26,6 +40,14 @@ const auth = (() => {
   }
 
   function setupListeners() {
+    // Tab switching in modal
+    tabSignIn?.addEventListener('click', () => switchTab('signin'));
+    tabCreateUser?.addEventListener('click', () => switchTab('create'));
+
+    btnCloseModal?.addEventListener('click', () => {
+      if (currentUser) closeModal();
+    });
+
     // 1-Click Login buttons in modal
     document.querySelectorAll('.quick-user-btn').forEach(btn => {
       btn.addEventListener('click', async () => {
@@ -34,7 +56,7 @@ const auth = (() => {
       });
     });
 
-    // Login Form Submit
+    // Sign In Form Submit
     loginForm?.addEventListener('submit', async (e) => {
       e.preventDefault();
       try {
@@ -42,11 +64,33 @@ const auth = (() => {
         api.setToken(res.token);
         setCurrentUser(res.user);
         closeModal();
-        toast.success(`Welcome, ${res.user.name}`);
+        toast.success(`Signed in as ${res.user.name}`);
         wsClient.identify();
         window.dispatchEvent(new CustomEvent('auth:login_success'));
       } catch (err) {
         toast.error(err.message || 'Login failed');
+      }
+    });
+
+    // Create User Form Submit
+    registerForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = regName.value.trim();
+      const email = regEmail.value.trim();
+      const password = regPassword.value;
+      const role = regRole.value;
+
+      try {
+        const res = await api.register({ name, email, password, role });
+        api.setToken(res.token);
+        setCurrentUser(res.user);
+        closeModal();
+        registerForm.reset();
+        toast.success(`User "${res.user.name}" created & signed in!`);
+        wsClient.identify();
+        window.dispatchEvent(new CustomEvent('auth:login_success'));
+      } catch (err) {
+        toast.error(err.message || 'Failed to create user');
       }
     });
 
@@ -60,6 +104,20 @@ const auth = (() => {
       if (!dropdown?.contains(e.target) && !profileBtn?.contains(e.target)) {
         dropdown?.classList.remove('show');
       }
+    });
+
+    // Dropdown "+ Create New User"
+    btnOpenCreateUser?.addEventListener('click', () => {
+      dropdown.classList.remove('show');
+      switchTab('create');
+      openModal();
+    });
+
+    // Dropdown "Sign In with Account"
+    btnOpenSignIn?.addEventListener('click', () => {
+      dropdown.classList.remove('show');
+      switchTab('signin');
+      openModal();
     });
 
     // Reset Data
@@ -81,6 +139,7 @@ const auth = (() => {
       api.setToken(null);
       currentUser = null;
       dropdown.classList.remove('show');
+      switchTab('signin');
       openModal();
     });
 
@@ -88,6 +147,21 @@ const auth = (() => {
       api.setToken(null);
       openModal();
     });
+  }
+
+  function switchTab(mode) {
+    if (mode === 'create') {
+      tabCreateUser?.classList.add('active');
+      tabSignIn?.classList.remove('active');
+      if (sectionCreateUser) sectionCreateUser.style.display = 'block';
+      if (sectionSignIn) sectionSignIn.style.display = 'none';
+      setTimeout(() => regName?.focus(), 100);
+    } else {
+      tabSignIn?.classList.add('active');
+      tabCreateUser?.classList.remove('active');
+      if (sectionSignIn) sectionSignIn.style.display = 'block';
+      if (sectionCreateUser) sectionCreateUser.style.display = 'none';
+    }
   }
 
   async function checkSession() {
@@ -179,6 +253,8 @@ const auth = (() => {
   return {
     init,
     getCurrentUser: () => currentUser,
-    getAllUsers: () => allUsers
+    getAllUsers: () => allUsers,
+    openModal,
+    switchTab
   };
 })();

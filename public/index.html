@@ -78,6 +78,14 @@
               <!-- Dynamically populated -->
             </div>
             <div class="dropdown-divider"></div>
+            <button class="dropdown-link" id="btnOpenCreateUser">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+              <span>+ Create New User</span>
+            </button>
+            <button class="dropdown-link" id="btnOpenSignIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+              <span>Sign In with Account</span>
+            </button>
             <button class="dropdown-link" id="btnResetData">Reset Demo Tasks</button>
             <button class="dropdown-link text-danger" id="btnLogout">Sign Out</button>
           </div>
@@ -229,31 +237,69 @@
     <!-- Minimal Auth Modal -->
     <div class="modal-backdrop" id="authModalOverlay" role="dialog" aria-modal="true">
       <div class="modal-card modal-auth">
-        <h2 class="modal-heading" style="text-align: center; margin-bottom: 6px;">Sign In to TaskFlow</h2>
-        <p class="text-subtle" style="text-align: center; margin-bottom: 18px;">Pick a profile to jump in immediately:</p>
-
-        <div class="quick-login-row">
-          <button class="quick-user-btn" data-demo-email="alex@taskflow.dev">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Alex">
-            <span>Alex Morgan</span>
-          </button>
-          <button class="quick-user-btn" data-demo-email="sarah@taskflow.dev">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Sarah">
-            <span>Sarah Chen</span>
-          </button>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <div class="auth-tabs-minimal">
+            <button class="auth-tab-minimal active" id="tabAuthSignIn">Sign In</button>
+            <button class="auth-tab-minimal" id="tabAuthCreateUser">Create User</button>
+          </div>
+          <button class="modal-close" id="btnAuthModalClose" style="font-size:1.1rem;" title="Close">&times;</button>
         </div>
 
-        <div class="or-separator">or email</div>
+        <!-- 1. Sign In Section -->
+        <div id="authSectionSignIn">
+          <p class="text-subtle" style="font-size:0.75rem; margin-bottom:10px; color:var(--text-muted);">Quick demo login:</p>
+          <div class="quick-login-row">
+            <button class="quick-user-btn" data-demo-email="alex@taskflow.dev">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Alex">
+              <span>Alex Morgan</span>
+            </button>
+            <button class="quick-user-btn" data-demo-email="sarah@taskflow.dev">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Sarah">
+              <span>Sarah Chen</span>
+            </button>
+          </div>
 
-        <form id="loginForm" class="modal-body" style="padding: 0;">
-          <div class="field">
-            <input type="email" id="loginEmail" class="input-text" placeholder="Email (alex@taskflow.dev)" required>
-          </div>
-          <div class="field">
-            <input type="password" id="loginPassword" class="input-text" placeholder="Password (password123)" required>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 4px;" id="btnLoginSubmit">Sign In</button>
-        </form>
+          <div class="or-separator">or credentials</div>
+
+          <form id="loginForm" class="modal-body" style="padding: 0;">
+            <div class="field">
+              <input type="email" id="loginEmail" class="input-text" placeholder="Email (alex@taskflow.dev)" required>
+            </div>
+            <div class="field">
+              <input type="password" id="loginPassword" class="input-text" placeholder="Password (password123)" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 4px;" id="btnLoginSubmit">Sign In</button>
+          </form>
+        </div>
+
+        <!-- 2. Create User Section -->
+        <div id="authSectionCreateUser" style="display: none;">
+          <form id="registerForm" class="modal-body" style="padding: 0;">
+            <div class="field">
+              <label for="regName" class="field-label">Full Name</label>
+              <input type="text" id="regName" class="input-text" placeholder="e.g. John Doe" required>
+            </div>
+            <div class="field">
+              <label for="regEmail" class="field-label">Email Address</label>
+              <input type="email" id="regEmail" class="input-text" placeholder="john@company.com" required>
+            </div>
+            <div class="field">
+              <label for="regPassword" class="field-label">Password (min 6 chars)</label>
+              <input type="password" id="regPassword" class="input-text" placeholder="••••••••" minlength="6" required>
+            </div>
+            <div class="field">
+              <label for="regRole" class="field-label">Role</label>
+              <select id="regRole" class="input-select">
+                <option value="Developer">Developer</option>
+                <option value="Designer">Designer</option>
+                <option value="Product Manager">Product Manager</option>
+                <option value="Team Lead">Team Lead</option>
+                <option value="QA Engineer">QA Engineer</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;" id="btnRegisterSubmit">Create User & Sign In</button>
+          </form>
+        </div>
       </div>
     </div>
 
