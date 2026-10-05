@@ -1,0 +1,456 @@
+{
+  "users": [
+    {
+      "id": "usr_alex",
+      "name": "Alex Morgan",
+      "email": "alex@taskflow.dev",
+      "password": "$2b$10$9nyxWd16aXmcA84X1M2qROt5GBw72hsl8pcsxLEq7zuQco3zUcIum",
+      "role": "Team Lead",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80",
+      "createdAt": "2026-09-05T09:42:48.118Z"
+    },
+    {
+      "id": "usr_sarah",
+      "name": "Sarah Chen",
+      "email": "sarah@taskflow.dev",
+      "password": "$2b$10$co9xW8sOV8RbN5eTSNSFbeH2voVwYeb.QlzK1Qf.CjbmpSFu5jB1a",
+      "role": "Full-Stack Developer",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80",
+      "createdAt": "2026-09-10T09:42:48.118Z"
+    },
+    {
+      "id": "usr_david",
+      "name": "David Kim",
+      "email": "david@taskflow.dev",
+      "password": "$2b$10$DdcvkKfL284B2QSAEtNr3.1ZkSkf4KGLi516B4XnZA8KxIImVW/cq",
+      "role": "Product Designer",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80",
+      "createdAt": "2026-09-15T09:42:48.118Z"
+    },
+    {
+      "id": "usr_elena",
+      "name": "Elena Rostova",
+      "email": "elena@taskflow.dev",
+      "password": "$2b$10$qZsbj7aI4yzO15JXB1ai9OKPuITfxsYssrDwbW6M7wVX/ifKPHk3O",
+      "role": "DevOps Engineer",
+      "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&auto=format&fit=crop&q=80",
+      "createdAt": "2026-09-20T09:42:48.118Z"
+    },
+    {
+      "id": "usr_22f2e4e7f9f5",
+      "name": "kai",
+      "email": "kao@gmail.com",
+      "password": "$2b$10$DjXy63CuJoTNDczxgyFad.6IwTEjq5hseesGAwRxW.sz9ipy.5lX6",
+      "role": "Full-Stack Developer",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=kai",
+      "createdAt": "2026-10-05T09:55:30.891Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "tsk_32649869053a",
+      "title": "Automate E2E Regression Suite",
+      "description": "Setup Playwright automated tests across all user auth and kanban flows.",
+      "status": "in_progress",
+      "priority": "urgent",
+      "dueDate": "2026-10-15",
+      "assigneeId": "usr_alex",
+      "creatorId": "usr_alex",
+      "tags": [
+        "qa",
+        "testing",
+        "ci-cd"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_test_1",
+          "title": "Configure test runner",
+          "completed": true
+        },
+        {
+          "id": "sub_test_2",
+          "title": "Write auth test specs",
+          "completed": false
+        }
+      ],
+      "comments": [
+        {
+          "id": "cm_a61aa01b",
+          "userId": "usr_alex",
+          "content": "Automated test suite scaffolding completed and verified.",
+          "createdAt": "2026-10-05T09:53:56.231Z"
+        }
+      ],
+      "createdAt": "2026-10-05T09:53:56.179Z",
+      "updatedAt": "2026-10-05T09:53:56.255Z"
+    },
+    {
+      "id": "tsk_1",
+      "title": "Real-time WebSocket Gateway",
+      "description": "Implement bidirectional real-time event broadcasting for live task board syncing, member presence, and live notifications.",
+      "status": "in_progress",
+      "priority": "urgent",
+      "dueDate": "2026-10-06",
+      "assigneeId": "usr_sarah",
+      "creatorId": "usr_alex",
+      "tags": [
+        "backend",
+        "websockets",
+        "architecture"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_1_1",
+          "title": "Heartbeat ping-pong monitoring",
+          "completed": true
+        },
+        {
+          "id": "sub_1_2",
+          "title": "Live message broadcasting handler",
+          "completed": true
+        },
+        {
+          "id": "sub_1_3",
+          "title": "Client auto-reconnect backoff",
+          "completed": false
+        },
+        {
+          "id": "sub_1_4",
+          "title": "Stress test 100 concurrent streams",
+          "completed": false
+        }
+      ],
+      "comments": [
+        {
+          "id": "cm_1",
+          "userId": "usr_alex",
+          "content": "Keep payload sizes compact to minimize overhead on low-bandwidth mobile devices.",
+          "createdAt": "2026-10-04T21:42:48.118Z"
+        },
+        {
+          "id": "cm_2",
+          "userId": "usr_sarah",
+          "content": "Heartbeat protocol is implemented and reconnection backoff is in progress now!",
+          "createdAt": "2026-10-05T05:42:48.118Z"
+        }
+      ],
+      "createdAt": "2026-10-03T09:42:48.118Z",
+      "updatedAt": "2026-10-05T05:42:48.118Z"
+    },
+    {
+      "id": "tsk_2",
+      "title": "Interactive Analytics & Metrics Dashboard",
+      "description": "Design intuitive visual widgets showing task distribution by priority, velocity completion rate, and workload balance.",
+      "status": "in_progress",
+      "priority": "high",
+      "dueDate": "2026-10-07",
+      "assigneeId": "usr_alex",
+      "creatorId": "usr_alex",
+      "tags": [
+        "frontend",
+        "metrics",
+        "charts"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_2_1",
+          "title": "Throughput velocity SVG chart",
+          "completed": true
+        },
+        {
+          "id": "sub_2_2",
+          "title": "Priority distribution donut widget",
+          "completed": false
+        },
+        {
+          "id": "sub_2_3",
+          "title": "Team member workload breakdown",
+          "completed": false
+        }
+      ],
+      "comments": [
+        {
+          "id": "cm_3",
+          "userId": "usr_david",
+          "content": "I provided color variables for the chart accents in the design system.",
+          "createdAt": "2026-10-05T01:42:48.118Z"
+        }
+      ],
+      "createdAt": "2026-10-02T09:42:48.118Z",
+      "updatedAt": "2026-10-05T07:42:48.118Z"
+    },
+    {
+      "id": "tsk_3",
+      "title": "Design System & Micro-Interactions",
+      "description": "Build a cohesive theme system with dark/light mode toggle, glassmorphism cards, responsive typography, and tactile drag states.",
+      "status": "todo",
+      "priority": "high",
+      "dueDate": "2026-10-08",
+      "assigneeId": "usr_david",
+      "creatorId": "usr_alex",
+      "tags": [
+        "design",
+        "css",
+        "ui/ux"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_3_1",
+          "title": "CSS variable tokens for light & dark palettes",
+          "completed": true
+        },
+        {
+          "id": "sub_3_2",
+          "title": "Smooth drag-and-drop indicator styling",
+          "completed": false
+        },
+        {
+          "id": "sub_3_3",
+          "title": "Mobile drawer navigation animations",
+          "completed": false
+        },
+        {
+          "id": "sub_3_4",
+          "title": "Custom priority and status badges",
+          "completed": true
+        }
+      ],
+      "comments": [],
+      "createdAt": "2026-10-01T09:42:48.118Z",
+      "updatedAt": "2026-10-04T09:42:48.118Z"
+    },
+    {
+      "id": "tsk_4",
+      "title": "Database Query Optimization & Safety",
+      "description": "Implement atomic disk writing, backup snapshots, and benchmark query latencies under multi-user concurrent loads.",
+      "status": "todo",
+      "priority": "medium",
+      "dueDate": "2026-10-10",
+      "assigneeId": "usr_elena",
+      "creatorId": "usr_alex",
+      "tags": [
+        "backend",
+        "database",
+        "performance"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_4_1",
+          "title": "Atomic file rename write strategy",
+          "completed": true
+        },
+        {
+          "id": "sub_4_2",
+          "title": "In-memory index caching",
+          "completed": false
+        },
+        {
+          "id": "sub_4_3",
+          "title": "Automated seed reset endpoint for demo",
+          "completed": true
+        }
+      ],
+      "comments": [],
+      "createdAt": "2026-09-30T09:42:48.118Z",
+      "updatedAt": "2026-10-03T09:42:48.118Z"
+    },
+    {
+      "id": "tsk_5",
+      "title": "User Profile & Settings Modal",
+      "description": "Allow team members to update their display names, avatar image URLs, notification preferences, and change passwords securely.",
+      "status": "review",
+      "priority": "medium",
+      "dueDate": "2026-10-07",
+      "assigneeId": "usr_david",
+      "creatorId": "usr_sarah",
+      "tags": [
+        "frontend",
+        "auth",
+        "settings"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_5_1",
+          "title": "Avatar preview with immediate local fallback",
+          "completed": true
+        },
+        {
+          "id": "sub_5_2",
+          "title": "Current password verification on change",
+          "completed": true
+        },
+        {
+          "id": "sub_5_3",
+          "title": "Responsive slide-over panel on mobile",
+          "completed": true
+        }
+      ],
+      "comments": [
+        {
+          "id": "cm_4",
+          "userId": "usr_sarah",
+          "content": "Password update API endpoint is tested and ready for review.",
+          "createdAt": "2026-10-05T03:42:48.118Z"
+        }
+      ],
+      "createdAt": "2026-09-29T09:42:48.118Z",
+      "updatedAt": "2026-10-05T04:42:48.118Z"
+    },
+    {
+      "id": "tsk_6",
+      "title": "JWT Authentication & Role Authorization",
+      "description": "Implement secure login, registration, JWT token signing, verification middleware, and role-based permissions.",
+      "status": "completed",
+      "priority": "high",
+      "dueDate": "2026-10-04",
+      "assigneeId": "usr_sarah",
+      "creatorId": "usr_alex",
+      "tags": [
+        "backend",
+        "security",
+        "auth"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_6_1",
+          "title": "Bcrypt password hashing",
+          "completed": true
+        },
+        {
+          "id": "sub_6_2",
+          "title": "JWT token signing and expiration",
+          "completed": true
+        },
+        {
+          "id": "sub_6_3",
+          "title": "Bearer token authorization middleware",
+          "completed": true
+        },
+        {
+          "id": "sub_6_4",
+          "title": "Pre-seeded demo user credentials",
+          "completed": true
+        }
+      ],
+      "comments": [
+        {
+          "id": "cm_5",
+          "userId": "usr_alex",
+          "content": "Verified with all 4 demo team members. Working smoothly.",
+          "createdAt": "2026-10-04T09:42:48.118Z"
+        }
+      ],
+      "createdAt": "2026-09-27T09:42:48.118Z",
+      "updatedAt": "2026-10-04T09:42:48.118Z"
+    },
+    {
+      "id": "tsk_7",
+      "title": "Server Scaffolding & Production Pipeline",
+      "description": "Configure Express server, static asset bundling, CORS headers, error boundaries, and environment configurations.",
+      "status": "completed",
+      "priority": "low",
+      "dueDate": "2026-10-02",
+      "assigneeId": "usr_elena",
+      "creatorId": "usr_alex",
+      "tags": [
+        "devops",
+        "express",
+        "setup"
+      ],
+      "subtasks": [
+        {
+          "id": "sub_7_1",
+          "title": "Express application bootstrap",
+          "completed": true
+        },
+        {
+          "id": "sub_7_2",
+          "title": "Static frontend routing",
+          "completed": true
+        },
+        {
+          "id": "sub_7_3",
+          "title": "Cross-origin resource sharing configuration",
+          "completed": true
+        }
+      ],
+      "comments": [],
+      "createdAt": "2026-09-25T09:42:48.118Z",
+      "updatedAt": "2026-10-02T09:42:48.118Z"
+    }
+  ],
+  "activities": [
+    {
+      "id": "act_7ef0ae65d80a",
+      "userId": "usr_alex",
+      "action": "moved_task",
+      "taskTitle": "Automate E2E Regression Suite",
+      "taskId": "tsk_32649869053a",
+      "details": "Changed status from todo to in progress",
+      "timestamp": "2026-10-05T09:53:56.258Z"
+    },
+    {
+      "id": "act_6f047e7ad70f",
+      "userId": "usr_alex",
+      "action": "added_comment",
+      "taskTitle": "Automate E2E Regression Suite",
+      "taskId": "tsk_32649869053a",
+      "details": "Commented: \"Automated test suite scaffolding complet...\"",
+      "timestamp": "2026-10-05T09:53:56.235Z"
+    },
+    {
+      "id": "act_b7a08fe6284b",
+      "userId": "usr_alex",
+      "action": "updated_subtask",
+      "taskTitle": "Automate E2E Regression Suite",
+      "taskId": "tsk_32649869053a",
+      "details": "Completed subtask: \"Configure test runner\"",
+      "timestamp": "2026-10-05T09:53:56.220Z"
+    },
+    {
+      "id": "act_53fa126de120",
+      "userId": "usr_alex",
+      "action": "created_task",
+      "taskTitle": "Automate E2E Regression Suite",
+      "taskId": "tsk_32649869053a",
+      "details": "Created task with priority \"urgent\"",
+      "timestamp": "2026-10-05T09:53:56.183Z"
+    },
+    {
+      "id": "act_1",
+      "userId": "usr_sarah",
+      "action": "updated_subtask",
+      "taskTitle": "Real-time WebSocket Gateway",
+      "taskId": "tsk_1",
+      "details": "Marked \"Live message broadcasting handler\" as completed",
+      "timestamp": "2026-10-05T05:42:48.118Z"
+    },
+    {
+      "id": "act_2",
+      "userId": "usr_david",
+      "action": "moved_task",
+      "taskTitle": "User Profile & Settings Modal",
+      "taskId": "tsk_5",
+      "details": "Moved task from \"In Progress\" to \"Review\"",
+      "timestamp": "2026-10-05T04:42:48.118Z"
+    },
+    {
+      "id": "act_3",
+      "userId": "usr_alex",
+      "action": "created_task",
+      "taskTitle": "Interactive Analytics & Metrics Dashboard",
+      "taskId": "tsk_2",
+      "details": "Created new task assigned to Alex Morgan",
+      "timestamp": "2026-10-04T15:42:48.118Z"
+    },
+    {
+      "id": "act_4",
+      "userId": "usr_sarah",
+      "action": "completed_task",
+      "taskTitle": "JWT Authentication & Role Authorization",
+      "taskId": "tsk_6",
+      "details": "Marked task as Completed",
+      "timestamp": "2026-10-04T09:42:48.118Z"
+    }
+  ]
+}
